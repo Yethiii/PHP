@@ -63,12 +63,16 @@ function motAleatoire($aleatoire)
 
 // Vérifier si la lettre est dans le mot aléatoire
 function verifierLettre($lettre, $mot, &$motAffiche)
-{
-    for ($i = 0; $i < strlen($mot); $i++)
-        if ($mot[$i] === $lettre) {
-            $motAffiche[$i] = $lettre;
-            return true;
-        }
 
-    return false;
+{
+    $tableaumot = str_split($mot);
+    $trouve = false;
+
+    foreach ($tableaumot as $i => $caractere) {
+        if ($caractere === $lettre) {
+            $motAffiche[$i] = $lettre;
+            $trouve = true;
+        }
+    }
+    return $trouve;
 }
