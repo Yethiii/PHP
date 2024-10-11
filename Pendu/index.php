@@ -14,15 +14,15 @@ $motAffiche = str_repeat("_", strlen($mot));
 $vie = 6;
 $lettresProposees = [];
 
-echo "Vous allez jouer au pendu ! Vous avez $vie vies pour trouver le mot !";
+echo "Vous allez jouer au pendu ! Vous avez $vie vies pour trouver le mot ! \n";
 
 while ($vie > 0 && strpos($motAffiche, "_") !== false) {
     echo "Voilà le mot à deviner : $motAffiche \n
     Voilà les lettres déjà proposées :" . implode('- ', $lettresProposees) . PHP_EOL;
     echo "Il te reste $vie vie(s) ! \n";
 
-    $lettre = readline("Proposez une lettre: ");
-    $lettresProposees[] = $lettre;
+    $lettre = readline("Proposez une lettre: \n");
+    $lettresProposees[] = strtolower($lettre);
 
     if (verifierLettre($lettre, $mot, $motAffiche) == false) {
         $vie--;

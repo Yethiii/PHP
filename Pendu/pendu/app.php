@@ -65,6 +65,7 @@ function motAleatoire($aleatoire)
 function verifierLettre($lettre, $mot, &$motAffiche)
 
 {
+    $lettre = strtolower($lettre);
     $tableaumot = str_split($mot);
     $trouve = false;
 
